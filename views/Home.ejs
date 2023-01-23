@@ -7,258 +7,414 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Home </title>
   <style>
-    @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-    @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
-
-    .vm vertical-align middle * {
-      margin: 0;
-      padding: 0;
+    * {
       box-sizing: border-box;
+
     }
 
     body {
-      font-family: "Poppins", sans-serif;
-      background: rgb(131, 58, 180);
-      background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+      margin: 0px;
+      font-family: 'segoe ui';
+      background-color: rgb(206, 190, 218);
+      background-color: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
     }
 
-    .container {
-      max-width: 1050px;
-      width: 90%;
-      margin: auto;
-    }
-
-    .navbar {
+    .nav {
+      height: 50px;
       width: 100%;
-      background: rgb(131, 58, 180);
-      background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
-    }
-
-    .nav-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      height: 62px;
-    }
-
-    .navbar .menu-items {
-      display: flex;
-
-    }
-
-    .navbar .nav-container li {
-      list-style: none;
-    }
-
-    .navbar .nav-container a {
-      text-decoration: none;
-      color: #e2ebf0;
-      font-weight: 500;
-      font-size: 1.2rem;
-      padding: 0.7rem;
-    }
-
-    .navbar .nav-container a:hover {
-      font-weight: bolder;
-    }
-
-    .nav-container {
-      display: block;
-      position: relative;
-      height: 60px;
-    }
-
-    .nav-container .checkbox {
+      background-color: #510fe9;
       position: absolute;
-      display: block;
-      height: 32px;
-      width: 32px;
-      top: 20px;
-      left: 20px;
-      z-index: 5;
-      opacity: 0;
-      cursor: pointer;
     }
 
-    .nav-container .hamburger-lines {
-      display: block;
-      height: 26px;
-      width: 32px;
-      position: absolute;
-      top: 17px;
-      left: 20px;
-      z-index: 2;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+    .nav>.nav-header {
+      display: inline;
     }
 
-    .nav-container .hamburger-lines .line {
-      display: block;
-      height: 4px;
-      width: 100%;
-      border-radius: 10px;
-      background: #0e2431;
+    .nav>.nav-header>.nav-title {
+      display: inline-block;
+      font-size: 22px;
+      color: #fff;
+      padding: 10px 10px 10px 10px;
     }
 
-    .nav-container .hamburger-lines .line1 {
-      transform-origin: 0% 0%;
-      transition: transform 0.4s ease-in-out;
-    }
-
-    .nav-container .hamburger-lines .line2 {
-      transition: transform 0.2s ease-in-out;
-    }
-
-    .nav-container .hamburger-lines .line3 {
-      transform-origin: 0% 100%;
-      transition: transform 0.4s ease-in-out;
-    }
-
-    .navbar .menu-items {
-      padding-top: 120px;
-      box-shadow: inset 0 0 2000px rgba(12, 12, 12, 0.5);
-      height: 100vh;
-      width: 100%;
-      transform: translate(-150%);
-      display: flex;
-      flex-direction: column;
-      margin-left: -40px;
-      padding-left: 50px;
-      transition: transform 0.5s ease-in-out;
-      text-align: center;
-    }
-
-    .navbar .menu-items li {
-      margin-bottom: 1.2rem;
-      font-size: 1.5rem;
-      font-weight: 500;
-    }
-
-    .logo {
-      position: absolute;
-      top: 5px;
-      right: 15px;
-      font-size: 1.2rem;
-      color: #0e2431;
-    }
-
-    .nav-container input[type="checkbox"]:checked~.menu-items {
-      transform: translateX(0);
-    }
-
-    .nav-container input[type="checkbox"]:checked~.hamburger-lines .line1 {
-      transform: rotate(45deg);
-    }
-
-    .nav-container input[type="checkbox"]:checked~.hamburger-lines .line2 {
-      transform: scaleY(0);
-    }
-
-    .nav-container input[type="checkbox"]:checked~.hamburger-lines .line3 {
-      transform: rotate(-45deg);
-    }
-
-    .nav-container input[type="checkbox"]:checked~.logo {
+    .nav>.nav-btn {
       display: none;
     }
 
-    .container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
+    .nav>.nav-links {
+      display: inline;
+      float: right;
+      font-size: 18px;
     }
 
-    .container h1 {
-      font-size: 3rem;
+    .nav>.nav-links>a {
+      display: inline-block;
+      padding: 13px 10px 13px 10px;
+      text-decoration: none;
+      color: #efefef;
+    }
+
+    .nav>.nav-links>a:hover {
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    .nav>#nav-check {
+      display: none;
+    }
+
+    @media (max-width:600px) {
+      .nav>.nav-btn {
+        display: inline-block;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+      }
+
+      .nav>.nav-btn>label {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        padding: 13px;
+      }
+
+      .nav>.nav-btn>label:hover,
+      .nav #nav-check:checked~.nav-btn>label {
+        background-color: rgba(0, 0, 0, 0.3);
+      }
+
+      .nav>.nav-btn>label>span {
+        display: block;
+        width: 25px;
+        height: 10px;
+        border-top: 2px solid #eee;
+      }
+
+      .nav>.nav-links {
+        position: absolute;
+        display: block;
+        width: 100%;
+        
+        height: 0px;
+        transition: all 0.3s ease-in;
+        overflow-y: hidden;
+        top: 50px;
+        left: 0px;
+      }
+
+      .nav>.nav-links>a {
+        display: block;
+        width: 100%;
+      }
+
+      .nav>#nav-check:not(:checked)~.nav-links {
+        height: 0px;
+      }
+
+      .nav>#nav-check:checked~.nav-links {
+        height: calc(100vh - 50px);
+        overflow-y: auto;
+      }
+    }
+
+    h1,
+    h2 {
+      font-weight: 500;
+      margin: 0px 0px 5px 0px;
+    }
+
+    h1 {
+      font-size: 24px;
+    }
+
+    h2 {
+      font-size: 16px;
+    }
+
+    p {
+      margin: 0px;
+    }
+
+    button {
+      margin-top: 20px;
+      width: auto;
+      border: 1px solid #FF5722;
+      background: #fff;
+      padding: 10px 30px;
+      color: #FF5722;
+      border-radius: 50px;
+      cursor: pointer;
+      text-transform: uppercase;
+    }
+
+    button:hover {
+      width: auto;
+      background: #FF5722;
       color: #fff;
-      margin-bottom: 1rem;
+      padding: 10px 30px;
+      cursor: pointer;
     }
 
-    .container img {
-      width: 250px;
-      height: 250px;
-    }
-
-    details {
+    .cart {
+      margin-top: 10px;
+      width: auto;
+      background: #FF5722;
       color: #fff;
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-
+      padding: 10px 30px;
+      cursor: pointer;
+      border-radius: 5px;
     }
 
-    ul {
-      list-style: none;
-
+    .product-card {
+      background: #FF5722;
+      width: 550px;
+      height: 156px;
+      position: absolute;
+      border-radius: 5px;
+      left: 50%;
+      top: 50%;
+      z-index: 2;
+      overflow: hidden;
+      opacity: 0;
+      margin-top: 70px;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16), 0px 3px 6px rgba(0, 0, 0, 0.23);
+      animation: init 1.5s 0.2s cubic-bezier(0.55, 0.055, 0.275, 0.19) forwards, materia 0.5s .9s cubic-bezier(0.86, 0, 0.07, 1) forwards;
     }
 
-    li {
-      margin-bottom: 1rem;
-      font-weight: 700;
-      fill-rule: nonzero;
-      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    .product-card header {
+      width: 230px;
+      height: 280px;
+      padding: 50px 0px 10px 0px;
+      display: inline-block;
+      float: left;
+      border-right: 2px dashed #EEEEEE;
+      background: #FFFFFF;
+      color: #000000;
+      margin-top: 50px;
+      opacity: 0;
+      text-align: center;
+      animation: moveIn 1s 1.5s ease forwards;
+    }
+
+    .product-card header h1 {
+      color: #FF5722;
+    }
+
+    .product-card header a {
+      display: inline-block;
+      text-align: center;
+      position: relative;
+      margin: 10px 20px;
+    }
+
+    .product-card header a>img {
+      max-width: 60%;
+      border-radius: 5%;
+    }
+
+    .product-card header a:after {
+      position: absolute;
+      content: "$500";
+      bottom: 3px;
+      right: 3px;
+      padding: 10px 5px;
+      border: 4px solid #FFFFFF;
+      transform: scale(0);
+      background: linear-gradient(#FF5722 0%, #FF5722 50%, #FF5722 50%, #FF5722 100%);
+      color: #fff;
+      border-radius: 50%;
+      box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+      animation: scaleIn 1.3s 1.5s ease forwards;
+    }
+
+    .product-card .product-bio {
+      width: 165px;
+      height: 180px;
+      display: inline-block;
+      float: right;
+      padding: 50px 20px 30px 20px;
+      background: #FFFFFF;
+      color: #333333;
+      margin-top: 50px;
+      text-align: center;
+      opacity: 0;
+      animation: moveIn 1s 1s ease forwards;
+    }
+
+    @keyframes init {
+      0% {
+        width: 0px;
+        height: 0px;
+      }
+
+      100% {
+        width: 36px;
+        height: 36px;
+        margin-top: 0px;
+        opacity: 1;
+      }
+    }
+
+    @keyframes materia {
+      0% {
+        background: #E0E0E0;
+      }
+
+      50% {
+        border-radius: 4px;
+      }
+
+      100% {
+        width: 440px;
+        height: 280px;
+        background: #FFFFFF;
+        border-radius: 4px;
+      }
+    }
+
+    @keyframes moveIn {
+      0% {
+        margin-top: 50px;
+        opacity: 0;
+      }
+
+      100% {
+        opacity: 1;
+        margin-top: -20px;
+      }
+    }
+
+    @media screen and (min-aspect-ratio: 4/3) {
+      body {
+        background-size: cover;
+      }
+
+      body:before {
+        width: 0px;
+      }
+
+      @ -webkit-keyframes puff {
+        0% {
+          top: 100%;
+          width: 0px;
+          padding-bottom: 0px;
+        }
+
+        100% {
+          top: 50%;
+          width: 100%;
+          padding-bottom: 100%;
+        }
+      }
+
+      @keyframes puff {
+        0% {
+          top: 100%;
+          width: 0px;
+          padding-bottom: 0px;
+        }
+
+        100% {
+          top: 50%;
+          width: 100%;
+          padding-bottom: 100%;
+        }
+      }
+    }
+
+    @media screen and (min-height: 480px) {
+      .product-card header {
+        width: auto;
+        height: auto;
+        padding: 20px 35px;
+        display: block;
+        float: none;
+        border-right: none;
+      }
+
+      .product-card .product-bio {
+        width: auto;
+        height: auto;
+        padding: 10px 20px 30px 20px;
+        display: block;
+        float: none;
+      }
+
+      @keyframes materia {
+        0% {
+          background: #E0E0E0;
+        }
+
+        50% {
+          border-radius: 4px;
+        }
+
+        100% {
+          width: 280px;
+          height: 440px;
+          background: #FFFFFF;
+          border-radius: 4px;
+        }
+      }
     }
   </style>
 </head>
 
 <body>
-  <nav>
-    <div class="navbar">
-      <div class="container nav-container">
-        <input class="checkbox" type="checkbox" name="" id="" />
-        <div class="hamburger-lines">
-          <span class="line line1"></span>
-          <span class="line line2"></span>
-          <span class="line line3"></span>
-        </div>
-        <div class="logo">
-
-        </div>
-        <div class="menu-items">
-          <li><a href="#">Home</a></li>
-          <li><a href="sobre">About</a></li>
-          <li><a href="#">contact</a></li>
-        </div>
+  <div class="nav">
+    <input type="checkbox" id="nav-check">
+    <div class="nav-header">
+      <div class="nav-title">
+        Bene_Tesla
       </div>
     </div>
-  </nav>
-  <div class="container">
-    <h1>Produto 1</h1>
-    <img src="https://user-images.githubusercontent.com/78994881/213945091-7dc48729-a34f-4ac0-9407-85799de9f7ef.jpg"
-      alt="logo">
-    <details>
-      <ul>
-        <li>Nome: TV </li>
-        <li>Preço: 588.58 R$</li>
-        <li>Descrição: TV de Tubo </li>
-      </ul>
-    </details>
+    <div class="nav-btn">
+      <label for="nav-check">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+    </div>
+
+    <div class="nav-links">
+      <a href="https://github.com/benetesla" target="_blank">Github</a>
+      <a href="sobre" target="_blank">sobre</a>
+    </div>
   </div>
-  <div class="container">
-    <h1>Produto 2</h1>
-    <img src="https://user-images.githubusercontent.com/78994881/213945091-7dc48729-a34f-4ac0-9407-85799de9f7ef.jpg"
-      alt="logo">
-    <details>
-      <ul>
-        <li>Nome: TV </li>
-        <li>Preço: 588.58 R$</li>
-        <li>Descrição: TV de Tubo </li>
-      </ul>
-    </details>
-  </div>
-  <div class="container">
-    <h1>Produto 3</h1>
-    <img src="https://user-images.githubusercontent.com/78994881/213945091-7dc48729-a34f-4ac0-9407-85799de9f7ef.jpg"
-      alt="logo">
-    <details>
-      <ul>
-        <li>Nome: TV </li>
-        <li>Preço: 588.58 R$</li>
-        <li>Descrição: TV de Tubo </li>
-      </ul>
-    </details>
-  </div>
+
+  <aside class="product-card">
+    <header>
+      <a target="_blank" href="#"><img
+          src="https://user-images.githubusercontent.com/78994881/214044055-22b1b89c-efae-473a-a713-068896b80f66.jpeg">
+        <h1>Nike01</h1>
+        <h2>Nike</h2>
+    </header>
+    <div class="product-bio">
+      <p>
+        Tenis da Nike, com um design moderno e confortável.
+      </p>
+      <button>Wishlist</button>
+      <button class="cart">Add to cart</button>
+    </div>
+  </aside>
+  <aside class="product-card">
+    <header>
+      <a target="_blank" href="#"><img
+          src="https://user-images.githubusercontent.com/78994881/214044055-22b1b89c-efae-473a-a713-068896b80f66.jpeg">
+        <h1>Nike01</h1>
+        <h2>Nike</h2>
+    </header>
+    <div class="product-bio">
+      <p>
+        Tenis da Nike, com um design moderno e confortável.
+      </p>
+      <button>Wishlist</button>
+      <button class="cart">Add to cart</button>
+    </div>
+  </aside>
+  
+
 </body>
 
 </html>
